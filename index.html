@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="./Style/main.css">
+    <link rel="stylesheet" href="./Style/font.css">
+</head>
+<body>
+    <div id="container">
+        <h2>Todo App</h1>
+        <div class="input-section">
+            <input id="input-task" type="text" placeholder="Add todo...">
+            <input id="input-date" type="date">
+            <button id="add">Add</button>
+        </div>
+        <div class="category">
+            <div>
+                <button>All</button>
+                <button>Pending</button>
+                <button>Completed</button>
+            </div>
+            <button id="del-all">Delete All</button>
+        </div>
+    </div>
+    <div id="alert-massage"></div>
+    <table>
+       <thead>
+            <tr>
+             <th>Task</td>
+             <th>Date</td>
+             <th>Status</td>
+             <th>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>text</td>
+                <td>date</td>
+                <td>pending</td>
+                <td>
+                    <button class="action-but edit">Edit</button>
+                    <button class="action-but do">Do</button>
+                    <button class="action-but del">Delete</button>
+                </td>
+            </tr> 
+        </tbody>
+    </table>
+    <script src="./Js/app.js"></script>
+</body>
+</html>
