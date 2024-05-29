@@ -2,6 +2,7 @@ const taskInput = document.getElementById("input-task");
 const dateInput = document.getElementById("input-date");
 const add = document.getElementById("add");
 const alertMassage = document.getElementById("alert-massage")
+const todosBody = document.querySelector("tbody")
 
 const todos = JSON.parse(localStorage.getItem("todos")) || [] ;
 
@@ -23,6 +24,28 @@ const showAlert = (massage, type) => {
     }, 2000)
 }
 
+const displayTodos = () => {
+  todosBody.innerHTML =""
+  if(!todos.length) {
+    todosBody.innerHTML = "<tr><td colspan='4'>No Task found!</td></tr>"
+    return;
+  }
+  todos.forEach(todo => {
+    todosBody.innerHTML += `
+      <tr>
+        <td>${todo.task}</td>
+        <td>${todo.date || "No Date"}</td>
+        <td>${todo.completed ? "Completed" : "Pending"}</td>
+        <td>
+          <button>Edit</button>
+          <button>Do</button>
+          <button>Delete</button>
+        </td>
+      </tr>
+    `
+  });
+}
+
 const addHandler = () => {
   const task = taskInput.value;
   const date = dateInput.value;
@@ -35,6 +58,7 @@ const addHandler = () => {
   if (task) {
     todos.push(todo);
     localStorage.setItem("todos", JSON.stringify(todos));
+    displayTodos()
     taskInput.value = ""
     dateInput.value = ""
     console.log(todos);
