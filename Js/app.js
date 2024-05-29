@@ -3,7 +3,7 @@ const dateInput = document.getElementById("input-date");
 const add = document.getElementById("add");
 const alertMassage = document.getElementById("alert-massage")
 
-const todos = []
+const todos = JSON.parse(localStorage.getItem("todos")) || [] ;
 
 const generatedId =() => {
     return  Math.round(Math.random() * Math.random() * Math.pow(10, 15)).toString();
@@ -34,6 +34,7 @@ const addHandler = () => {
   };
   if (task) {
     todos.push(todo);
+    localStorage.setItem("todos", JSON.stringify(todos));
     taskInput.value = ""
     dateInput.value = ""
     console.log(todos);
