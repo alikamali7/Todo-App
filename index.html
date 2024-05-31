@@ -14,12 +14,13 @@
             <input id="input-task" type="text" placeholder="Add todo...">
             <input id="input-date" type="date">
             <button id="add">Add</button>
+            <button id="edit-button">Edit</button>
         </div>
         <div class="category">
             <div>
-                <button>All</button>
-                <button>Pending</button>
-                <button>Completed</button>
+                <button class="filter-todos" data-filter="all">All</button>
+                <button class="filter-todos" data-filter="pending">Pending</button>
+                <button class="filter-todos" data-filter="completed">Completed</button>
             </div>
             <button id="del-all">Delete All</button>
         </div>
